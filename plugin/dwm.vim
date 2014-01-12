@@ -1,15 +1,17 @@
 if exists('g:loaded_unite_dwm') && g:loaded_unite_dwm
   finish
 endif
+
 let g:loaded_unite_dwm = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
 
 let s:action = {
-      \ 'description' : 'open file(s) by DWM',
-      \ 'is_selectable' : 1,
-      \ }
+  \   'description':   'open file(s) by DWM',
+  \   'is_selectable': 1,
+  \ }
+
 function! s:action.func(candidates)
   for candidate in a:candidates
     if bufexists(l:candidate.action__path)
@@ -28,7 +30,9 @@ function! s:action.func(candidates)
     endif
   endfor
 endfunction
+
 call unite#custom_action('openable', 'dwm_open', s:action)
+
 unlet s:action
 
 let &cpo = s:save_cpo
