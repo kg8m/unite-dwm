@@ -7,7 +7,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 let s:action = {
-      \ 'description' : 'execute DWM_New',
+      \ 'description' : 'open file(s) by DWM',
       \ 'is_selectable' : 1,
       \ }
 function! s:action.func(candidates)
@@ -28,7 +28,7 @@ function! s:action.func(candidates)
     endif
   endfor
 endfunction
-call unite#custom_action('openable', 'dwm_new', s:action)
+call unite#custom_action('openable', 'dwm_open', s:action)
 unlet s:action
 
 let &cpo = s:save_cpo
