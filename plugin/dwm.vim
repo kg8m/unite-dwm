@@ -35,5 +35,9 @@ call unite#custom_action('openable', 'dwm_open', s:action)
 
 unlet s:action
 
+if exists("g:unite_dwm_source_names_as_default_action")
+  call unite#custom#default_action(g:unite_dwm_source_names_as_default_action, "dwm_open")
+endif
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
