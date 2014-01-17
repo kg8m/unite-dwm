@@ -28,6 +28,13 @@ unite-dwm
 
 openアクションが実行できるsourceに以下のアクションが追加されます。
 
-### dwm_new
+### dwm_open
 
-`DWM_New` を実行します。
+  - candidateがすでにいずれかのwindowで開かれていたら、そのwindowをメインにします。
+  - それ以外の場合は `DWM_New` を実行します。
+
+### 変数
+
+  - `g:unite_dwm_source_names_as_default_action`
+    - 指定すると、そのsourceのデフォルトアクションが `dwm_open` になります。
+    - 例: `let g:unite_dwm_source_names_as_default_action = 'buffer,file,file_mru'`
