@@ -13,13 +13,15 @@ let s:action = {
   \ }
 
 function! s:action.func(candidates)
-  for candidate in a:candidates
+  for l:candidate in a:candidates
     if bufexists(l:candidate.action__path)
       let l:winnr = bufwinnr(l:candidate.action__path)
 
       if l:winnr == -1
-        call DWM_New()
+        call DWM_Stack(1)
+        split
         call unite#take_action('open', l:candidate)
+        call DWM_AutoEnter()
       else
         exec l:winnr . "wincmd w"
         call DWM_AutoEnter()
