@@ -31,7 +31,8 @@ openアクションが実行できるsourceに以下のアクションが追加�
 ### dwm_open
 
   - candidateがすでにいずれかのwindowで開かれていたら、そのwindowをメインにします。
-  - それ以外の場合は `DWM_New` を実行します。
+  - candidateがすでにbufferに存在してはいるもののwindowで開かれていない場合、新しくメインのwindowを作成し、そこにcandidateを開きます。
+  - それ以外の場合は `DWM_New` を実行してcandidateを開きます。
 
 ### 変数
 
