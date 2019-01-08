@@ -27,7 +27,10 @@ function! s:action.func(candidates)
         call DWM_AutoEnter()
       endif
     else
-      call DWM_New()
+      if bufname("%") != ""
+        call DWM_New()
+      endif
+
       call unite#take_action('open', l:candidate)
     endif
   endfor
